@@ -1,12 +1,12 @@
-# Almefy .NET Client
+# Almefy Python Client
 
-A simple .NET wrapper for the Almefy API.
+A simple Python wrapper for the Almefy API.
 
 ## Quick Guide
 
-Below is a striped down guide how to integrate Almefy in your .NET project to test it easily.
+Below is a striped down guide how to integrate Almefy in your Python project to test it easily.
 
-_Please notice: this document is a work in progress and currently addresses .NET Version 4.8._
+_Please notice: this document is a work in progress and currently addresses Python 3.8_
 
 ### Prerequisites
 
@@ -35,7 +35,7 @@ from GitHub.
 Once you have the SDK installed in your project, you will need to instantiate a Client object. This example assumes
 that you store the secrets in some environment variables:
 
-```csharp
+```python
 const api = new AlmefyAPIClient({
                                     apiBaseUrl: process.env.ALMEFY_APIHOST,
                                     apiKey: process.env.ALMEFY_KEY,
@@ -51,7 +51,7 @@ way to enroll an account with Almefy is to send the user an email with an enroll
 could be a "Login with Almefy" button somewhere inside the protected area, which triggers the following process in the
 backend:
 
-```csharp
+```python
 const options = {sendEmail:false}
 api.enrollIdentity("john.doe", options).then(result => {
     console.log(util.inspect(result, {showHidden: false, depth: null, colors: true}))
@@ -64,7 +64,7 @@ that can be used in any HTML email.
 If enabled, you can also use the Almefy API to send a generic enrollment email without the effort to build a custom
 email-client compatible template:
 
-```csharp
+```python
 const options = {sendEmail: true, sendEmailTo: "john.doe@example.com"}
 api.enrollIdentity("john.doe", options).then(result => {
     console.log(util.inspect(result, {showHidden: false, depth: null, colors: true}))
